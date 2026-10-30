@@ -18,18 +18,18 @@ text = st.text_area(
 )
 
 # 버튼
-if st.button(  "변환하기"    ):
-    if text.strip() == ():
+if st.button(  "음성 생성"    ):
+    if text.strip() == "":
         st.warning( "음성으로 변환할 텍스트를 입력하세요."     )
     else:
         # TTS 생성
         speech = client.audio.speech.create(
             model=   "gpt-4o-mini"  ,
-            voice=     ,
+            voice= "nova" ,
             input=[{"role": "system", "content": sys_role},
                     {"role": "user", "content": prompt}]
         )
-        audio_bytes =response.output_sound
+       # audio_bytes =s peech.content
 
         # 음성 출력
         st.markdown("### 🔊 음성 재생")
