@@ -9,13 +9,19 @@ client = OpenAI()
 
 # 페이지 설정
 st.set_page_config(page_title="AI 개인비서 에이블", page_icon="🤖", layout="wide")
-st.title("AI 개인비서 에이블")
-st.write("김 대리님의 회의록을 분석하고, 음성으로 질문에 답하며 이메일 발송을 도와드립니다.")
 
-st.image(
-    "https://raw.githubusercontent.com/Jangrae/img/master/ai_robot.png",
-    width=200
-)
+
+col1, col2 = st.columns([1, 3])
+
+with col1:
+    st.image(
+        "https://raw.githubusercontent.com/Jangrae/img/master/ai_robot.png",
+        width=180
+    )
+
+with col2:
+    st.title("AI 개인비서 에이블")
+    st.write("김 대리님의 회의록을 분석하고, 음성으로 질문에 답하며 이메일 발송을 도와드립니다.")
 
 # 역할 지정
 sys_role = """
