@@ -12,6 +12,11 @@ st.set_page_config(page_title="AI 개인비서 에이블", page_icon="🤖", lay
 st.title("AI 개인비서 에이블")
 st.write("김 대리님의 회의록을 분석하고, 음성으로 질문에 답하며 이메일 발송을 도와드립니다.")
 
+st.image(
+    "https://raw.githubusercontent.com/Jangrae/img/master/ai_robot.png",
+    width=200
+)
+
 # 역할 지정
 sys_role = """
 당신은 '김 대리'의 개인 AI 비서 '에이블'입니다.
@@ -23,7 +28,7 @@ sys_role = """
 이메일 발송 요청이 있을 경우에만 send_email 도구를 사용합니다.
 """
 
-# 이메일 발송 함수 (미션 1, 7)
+# 이메일 발송 함수
 def send_email(to, subject, body):
     sender = os.getenv("GMAIL_ADDRESS")
     password = os.getenv("GMAIL_APP_PASSWORD")
@@ -45,7 +50,7 @@ def send_email(to, subject, body):
     except Exception as e:
         return {"status": "failed", "error": str(e)}
 
-# 도구 정의 (미션 7)
+# 도구 정의
 tools = [{
     "type": "function",
     "name": "send_email",
